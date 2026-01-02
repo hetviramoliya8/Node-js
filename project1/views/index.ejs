@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f2f4f8;
+        }
+
+        .container {
+            width: 85%;
+            margin: 40px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Form Design */
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        form input[type="text"],
+        form input[type="number"] {
+            padding: 10px;
+            width: 220px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        form input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102,126,234,0.4);
+        }
+
+        form input[type="submit"] {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 6px;
+            background: #667eea;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        form input[type="submit"]:hover {
+            background: #5a67d8;
+        }
+
+        /* Table Design */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #667eea;
+            color: #fff;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:hover {
+            background: #f1f3ff;
+        }
+
+        button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .edit {
+            background: #38a169;
+        }
+
+        .edit:hover {
+            background: #2f855a;
+        }
+
+        .delete {
+            background: #e53e3e;
+        }
+
+        .delete:hover {
+            background: #c53030;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Book</h1>
+
+    <!-- Add Data Form -->
+    <form action="/addData" method="post">
+        <input type="text" placeholder="Enter your book name" name="name" required>
+        <input type="number" placeholder="Enter your book catagory" name="catagory" required>
+        <input type="number" placeholder="Enter your book prize" name="prize" required>
+        <input type="text" placeholder="Enter your book Author" name="Author" required>
+        <input type="submit" value="Add Data">
+    </form>
+
+    <!-- Data Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Catagory</th>
+                <th>Prize</th>
+                <th>Author</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% data.map((e,i)=>{ %>
+            <tr>
+                <td><%= e.id %></td>
+                <td><%= e.name %></td>
+                <td><%= e.catagory %></td>
+                <td><%= e.prize %></td>
+                <td><%= e.Author %></td>
+                <td>
+                    <a href="/editData?id=<%= e.id %>">
+                        <button class="edit">Edit</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="/deleteData?id=<%= e.id %>">
+                        <button class="delete">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

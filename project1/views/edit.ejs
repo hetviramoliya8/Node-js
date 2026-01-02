@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Data</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6fb;
+        }
+
+        .container {
+            width: 80%;
+            margin-top: 90px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        /* Form Design */
+        form {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        form input {
+            padding: 10px;
+            width: 200px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        form input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102,126,234,0.4);
+        }
+
+        form button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 6px;
+            background: #667eea;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            background: #5a67d8;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Update Data</h1>
+
+    <!-- Update Form -->
+    <form action="/updateData" method="post">
+        <input type="hidden" value="<%= singleData.id %>" name="id">
+
+        <input 
+            type="text" 
+            value="<%= singleData.name %>" 
+            placeholder="Enter your name" 
+            name="name"
+            required
+        >
+
+        <input 
+            type="number" 
+            value="<%= singleData.catagory %>" 
+            placeholder="Enter your book catagory" 
+            name="catagory"
+            required
+        >
+        <input 
+            type="number" 
+            value="<%= singleData.prize %>" 
+            placeholder="Enter your book prize" 
+            name="prize"
+            required
+        >
+        <input 
+            type="text" 
+            value="<%= singleData.Author %>" 
+            placeholder="Enter your book Author" 
+            name="Author"
+            required
+        >
+
+        <button type="submit">Update</button>
+    </form>
+
+
+</div>
+
+</body>
+</html>
