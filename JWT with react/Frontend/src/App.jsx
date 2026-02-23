@@ -11,8 +11,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" Component={Login} />
-        <Route path="/register" Component={Register} />
+        <Route path="/" Component={Register} />
+        <Route path="/login" Component={Login} />
         <Route path="/dashboard" Component={Dashboard} />
         <Route path="/profile" Component={Profile} />
         <Route path="/changePass" Component={ChangePass} />
